@@ -1,3 +1,9 @@
+init:
+	@echo "Updating submodules..."
+	@git submodule update --remote
+	@echo "submodules update done\n"
+	@make common
+
 include common/makefile
 
 all: start build test end

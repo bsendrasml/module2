@@ -1,10 +1,12 @@
 init:
 	@echo "Updating submodules..."
-	@git submodule update --remote
+	@rm -rf common
+	@git submodule add -f git@github.com:bsendrasml/common.git
+	@git submodule update --remote --quiet
 	@echo "submodules update done\n"
 	@make common
 
-include common/makefile
+-include common/makefile
 
 all: start build test end
 
